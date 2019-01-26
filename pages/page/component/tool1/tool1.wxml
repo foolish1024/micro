@@ -1,0 +1,113 @@
+<view class="container">
+  <view class="page-body">
+  <form bindsubmit='queryAmount'>
+      <view class="page-section">
+        <view class="weui-cell">工资总额：
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input" bindinput="bindTotalAmount" placeholder="请输入金额"/>
+          </view>
+        </view>
+
+        <view class="weui-cell">个税专项附加扣除：
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input" bindinput="bindSpecialTaxBase" placeholder="请输入金额"/>
+          </view>
+        </view>
+
+        <view class="weui-cell">社保汇缴基数：
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input" bindinput="bindSocialSecurityBase" placeholder="请输入金额"/>
+          </view>
+        </view>
+
+        <view class="weui-cell">公积金汇缴基数：
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input" bindinput="bindProvidentFundBase" placeholder="请输入金额"/>
+          </view>
+        </view>
+
+        <view class="weui-cell">养老汇缴比例：
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <picker bindchange="bindPension" value="{{pension}}" range="{{pension}}">
+                <view class="weui-input">{{pension[pensionIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-cell">医疗汇缴比例：
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <picker bindchange="bindMedical" value="{{medical}}" range="{{medical}}">
+                <view class="weui-input">{{medical[medicalIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-cell">失业汇缴比例：
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <picker bindchange="bindUnemployment" value="{{unemployment}}" range="{{unemployment}}">
+                <view class="weui-input">{{unemployment[unemploymentIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-cell">工伤汇缴比例：
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <picker bindchange="bindInjury" value="{{injury}}" range="{{injury}}">
+                <view class="weui-input">{{injury[injuryIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-cell">生育汇缴比例：
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <picker bindchange="bindFertility" value="{{fertility}}" range="{{fertility}}">
+                <view class="weui-input">{{fertility[fertilityIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+        
+        <view class="weui-cell">公积金汇缴比例：
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <picker bindchange="bindProvidentFund" value="{{providentFund}}" range="{{providentFund}}">
+                <view class="weui-input">{{providentFund[providentFundIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-cell">
+          <checkbox-group bindchange="bindCheckbox">
+            <label class="checkbox">
+              <checkbox value="true">
+              </checkbox>
+            </label>
+          </checkbox-group>
+          汇缴补充住房公积金：
+          <view class="weui-cell_input">
+            <view class="weui-cell__bd">
+              <picker disabled='{{checkboxStatus}}' bindchange="bindSuppProvidentFund" value="{{suppProvidentFund}}" range="{{suppProvidentFund}}">
+                <view class="weui-input">{{suppProvidentFund[suppProvidentFundIndex]}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <button size='mini' disabled='{{btnStatue}}' bindchange="queryAmount" form-type='submit'>查询</button>
+      </view>
+    </form>
+  </view>
+  <!-- <template is="foot" /> -->
+</view>
